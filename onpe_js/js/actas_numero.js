@@ -1,5 +1,3 @@
-
-
 const tab_info = document.getElementById( 'tab-info' );
 const presidencial = document.getElementById( 'presidencial' );
 
@@ -16,11 +14,11 @@ async function actas_buscar( form ) {
         return;
     }
     if (isNaN(nroMesa)) {
-        alert("Ingrese un número de acta válido");
+        alert( "Ingrese un número de acta válido" );
         return;
     }
     if (nroMesa.length < 6) {
-        alert("No es un número de acta válido");
+        alert( "No es un número de acta válido" );
         return;
     }
 
@@ -38,8 +36,8 @@ async function actas_buscar( form ) {
 }
 
 const act_response = ( acta ) => {
-    const html = `
-
+    const html = 
+    `       
     <div class="tab-info-desc">
 
         <div class="row">

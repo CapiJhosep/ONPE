@@ -29,7 +29,7 @@ async function actas_buscar( form ) {
         let acta = await data.json()
         if ( acta[ 'success' ] ) {
             acta = acta[ 'data' ]
-            presidencial.innerHTML = acta.act_response( acta );
+            presidencial.innerHTML = act_response( acta );
         } 
         else tab_info.innerHTML = 'EL NÚMERO DE MESA QUE HA INGRESADO NO EXISTE'
     } 
@@ -145,28 +145,28 @@ const act_response = ( acta ) => {
                     <tr>
                         <td>PERUANOS POR EL KAMBIO</td>
                         <td><img width="40px" height="40px" src="images/simbolo_pkk.jpg"></td>
-                        <td>127</td>
+                        <td> ${ acta[ 'P1' ] } </td>
                     </tr>
                     <tr>
                         <td>FUERZA POPULAR</td>
                         <td><img width="40px" height="40px" src="images/simbolo_keyko.jpg"></td>
-                        <td>101</td>
+                        <td> ${ acta[ 'P2' ] } </td>
                     </tr>
                     <tr>
                         <td colspan="2">VOTOS EN BLANCO</td>
-                        <td>0</td>
+                        <td> ${ acta[ 'VotosBlancos' ] } </td>
                     </tr>
                     <tr>
                         <td colspan="2">VOTOS NULOS</td>
-                        <td>13</td>
+                        <td> ${ acta[ 'VotosNulos' ] } </td>
                     </tr>
                     <tr>
                         <td colspan="2">VOTOS IMPUGNADOS</td>
-                        <td>0</td>
+                        <td> ${ acta[ 'VotosImpugnados' ] } </td>
                     </tr>
                     <tr>
                         <td colspan="2">TOTAL DE  VOTOS EMITIDOS</td>
-                        <td>241</td>
+                        <td> ${ acta[ 'TotalVotantes' ] } </td>
                     </tr>
                 </tbody>
                 </table>

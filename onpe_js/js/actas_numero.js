@@ -25,14 +25,19 @@ async function actas_buscar( form ) {
     tab_info.innerHTML = ''
     const data = await fetch( `https://oaemdl.es/onpe_sweb_php/actas/numero/${nroMesa}` )
     
-    if ( data.status == 200 ) {
-        let acta = await data.json()
-        if ( acta[ 'success' ] ) {
-            acta = acta[ 'data' ]
-            presidencial.innerHTML = act_response( acta );
-        } 
-        else tab_info.innerHTML = 'EL NÚMERO DE MESA QUE HA INGRESADO NO EXISTE'
-    } 
+    if (data.status === 200) {
+        let acta = await data.json();
+        if (acta['success']) {
+            acta = acta['data'];
+            presidencial.innerHTML = act_response(acta);
+            presidencial.style.display = 'block'; 
+        } else {
+            tab_info.innerHTML = 'EL NÚMERO DE MESA QUE HA INGRESADO NO EXISTE';
+            presidencial.style.display = 'none';
+        }
+    } else {
+        presidencial.style.display = 'none'; 
+    }
 }
 
 const act_response = ( acta ) => {
